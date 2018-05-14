@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sonic</string>
+    <string name="password">pAs5word</string>
+    <string name="fullname">Full Name</string>
+    <string name="email">em@il</string>
+    <string name="mobilenumber">Mobile Number</string>
+    <string name="signup">Sign Up</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_up">don\'t have an account? Sign up</string>
+    <string name="welcome_do_dashboard">Welcome do dashboard!</string>
+    <string name="by_clicking_sign_up_you_are_agree_with_our_terms_and_conditions">By clicking Sign Up, you are agree with our Terms and Conditions</string>
+</resources>

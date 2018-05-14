@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1091791625111",
+    "firebase_url": "https://sonic-269ab.firebaseio.com",
+    "project_id": "sonic-269ab",
+    "storage_bucket": "sonic-269ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091791625111:android:a1bbe4161cea918e",
+        "android_client_info": {
+          "package_name": "org.bitleet.sonic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091791625111-9o2uacqu4pn1mcg4pasqr8men1920n4i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.bitleet.sonic",
+            "certificate_hash": "b549a703f362d57dc65c505e5ea9cd7b3b8e23c9"
+          }
+        },
+        {
+          "client_id": "1091791625111-do2tners6p9dg6l81mh4veas0np4lmnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe6pCvgkEqw2IIyo1HQnX_TM-7P-jEq-o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091791625111-do2tners6p9dg6l81mh4veas0np4lmnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
