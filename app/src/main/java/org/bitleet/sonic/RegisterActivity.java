@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -45,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
             //checking user logged in or not
             finish();
             Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
+            startActivity(intent);
         }
 
         goLogin.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +67,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+
     private void RegisterUser(){
-        String name = editTextName.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String number = editTextMobile.getText().toString().trim();
+        final String name = editTextName.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String mobile = editTextMobile.getText().toString().trim();
         String Password = editTextPassword.getText().toString().trim();
 
         if (name.isEmpty()){
@@ -87,13 +90,19 @@ public class RegisterActivity extends AppCompatActivity {
             editTextEmail.requestFocus();
             return;
         }
-        if (number.isEmpty()){
-            editTextMobile.setError("Bangladeshi Mobile number required");
+        if (mobile.isEmpty()){
+            editTextMobile.setError("Bangladeshi Mobile mobile required");
             editTextMobile.requestFocus();
             return;
         }
-        if (number.length() < 11){
-            editTextMobile.setError("Mobile number should be 11 digits");
+        if (mobile.length() < 11){
+            editTextMobile.setError("Mobile mobile should be 11 digits");
+            editTextMobile.requestFocus();
+            return;
+        }
+
+        if (mobile.length() > 11){
+            editTextMobile.setError("Mobile mobile should be 11 digits");
             editTextMobile.requestFocus();
             return;
         }
@@ -110,24 +119,56 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         final ProgressDialog progressDialog = ProgressDialog.show(RegisterActivity.this, "Please Wait", "Processing", true);
+
         (mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-
                         if (task.isSuccessful()){
-                            Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            Log.e("Error", task.getException().toString());
-                            Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
 
-}
+                        User user = new User(name, email, mobile);
+
+                        FirebaseDatabase.getInstance().getReference("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Log.e("Error", task.getException().toString());
+                                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                        }
+
+                        });
+                        } else {
+                                Log.e("Error", task.getException().toString());
+                                Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+
+
+
+                           /* @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Log.e("Error", task.getException().toString());
+                                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }*/
+                        }
+
+
+                    });
+                }
+    }
