@@ -41,6 +41,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null){
+            //checking user logged in or not
+            finish();
+            Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
+        }
+
         goLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
                             startActivity(intent);
                             finish();
                         }

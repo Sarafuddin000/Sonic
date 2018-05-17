@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPassword;
     public Button btnLogin, goSignup;
     private FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
 
     @Override
@@ -37,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         goSignup = findViewById(R.id.buttonGoSignup);
 
         mAuth = FirebaseAuth.getInstance();
+
+        if (mAuth.getCurrentUser() != null){
+            //checking user logged in or not
+            finish();
+            Intent intent = new Intent(MainActivity.this, Dashboard.class);
+            startActivity(intent);
+        }
+
 
         goSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "Please wait", "Processing", true);
+
         (mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

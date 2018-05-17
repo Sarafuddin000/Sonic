@@ -19,10 +19,16 @@
 
     <TextView
         android:id="@+id/UserName"
-        android:layout_width="72dp"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="88dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="97dp"
         android:text="Name"
         android:textSize="20sp" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:id="@+id/buttonLogout"
+        android:text="LogOut"/>
 </RelativeLayout>
