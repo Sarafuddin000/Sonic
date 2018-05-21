@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,33 +55,24 @@ public class Dashboard extends AppCompatActivity {
                         break;
 
                     case R.id.action_withdraw:
-                        Intent intent1 = new Intent(Dashboard.this, EarnActivity.class);
+                        Intent intent1 = new Intent(Dashboard.this, Withdraw.class);
                         startActivity(intent1);
                         break;
 
                     case R.id.action_notification:
-                        Intent intent2 = new Intent(Dashboard.this, EarnActivity.class);
+                        Intent intent2 = new Intent(Dashboard.this, Notification.class);
                         startActivity(intent2);
                         break;
 
                     case R.id.action_invite:
-                        Intent intent3 = new Intent(Dashboard.this, EarnActivity.class);
+                        Intent intent3 = new Intent(Dashboard.this, Invite.class);
                         startActivity(intent3);
                         break;
 
                     case R.id.action_support:
-                        Intent intent4 = new Intent(Dashboard.this, EarnActivity.class);
+                        Intent intent4 = new Intent(Dashboard.this, Support.class);
                         startActivity(intent4);
                         break;
-
-                    case R.id.action_report:
-                        Intent intent5 = new Intent(Dashboard.this, EarnActivity.class);
-                        startActivity(intent5);
-                        break;
-
-
-                    default:
-                        Toast.makeText(Dashboard.this, ""+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
 
                 }
 

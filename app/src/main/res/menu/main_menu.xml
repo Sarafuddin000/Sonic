@@ -19,10 +19,7 @@
         android:id="@+id/action_withdraw"
         android:icon="@drawable/ic_withdraw"
         android:title="Withdraw"/>
-    <item
-        android:id="@+id/action_report"
-        android:icon="@drawable/ic_report"
-        android:title="Report Bug" />
+
     <item
         android:id="@+id/action_notification"
         android:icon="@drawable/ic_notification"
