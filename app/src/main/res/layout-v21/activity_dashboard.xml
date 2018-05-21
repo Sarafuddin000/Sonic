@@ -19,9 +19,7 @@
         android:layout_gravity="bottom|end"
         app:fabGravity="bottom_end"
         app:fabMenu="@menu/main_menu"
-
-        android:backgroundTint="@color/colorAccent"
-        app:miniFabBackgroundTint="@android:color/white"
+        app:miniFabBackgroundTint="@color/colorAccent"
         app:miniFabTitlesEnabled="true"
         app:miniFabDrawableTint="@color/colorPrimaryDark"
         app:miniFabTitleTextColor="@color/colorPrimary"

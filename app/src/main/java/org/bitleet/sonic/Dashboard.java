@@ -21,6 +21,8 @@ public class Dashboard extends AppCompatActivity {
     public FirebaseAuth mAuth;
     public Button buttonLogout;
 
+
+
    /* @Override
     protected void onStart() {
         super.onStart();
@@ -47,7 +49,43 @@ public class Dashboard extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(Dashboard.this, ""+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                switch (menuItem.getItemId()){
+                    case R.id.action_earn:
+                        Intent intent = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.action_withdraw:
+                        Intent intent1 = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.action_notification:
+                        Intent intent2 = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.action_invite:
+                        Intent intent3 = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.action_support:
+                        Intent intent4 = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent4);
+                        break;
+
+                    case R.id.action_report:
+                        Intent intent5 = new Intent(Dashboard.this, EarnActivity.class);
+                        startActivity(intent5);
+                        break;
+
+
+                    default:
+                        Toast.makeText(Dashboard.this, ""+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+
+                }
+
                 return true;
             }
 
