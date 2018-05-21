@@ -1,14 +1,19 @@
 package org.bitleet.sonic;
 
 import android.content.Intent;
+import android.support.design.internal.NavigationMenu;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -26,10 +31,31 @@ public class Dashboard extends AppCompatActivity {
         }
     }*/
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.FabSpeedDial);
+        fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
+            @Override
+            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                Toast.makeText(Dashboard.this, ""+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            @Override
+            public void onMenuClosed() {
+
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -38,6 +64,7 @@ public class Dashboard extends AppCompatActivity {
             finish();
             startActivity(intent);
         }
+
 
         FirebaseUser mUser = mAuth.getCurrentUser();
 
