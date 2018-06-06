@@ -8,9 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
@@ -19,6 +25,9 @@ public class Dashboard extends AppCompatActivity {
     public TextView UserName;
     public FirebaseAuth mAuth;
     public Button buttonLogout;
+    DatabaseReference databaseReference;
+    String uid;
+    String name;
 
 
 
@@ -49,15 +58,15 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.action_earn:
+                    /*case R.id.action_earn:
                         Intent intent = new Intent(Dashboard.this, EarnActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
 
-                    case R.id.action_withdraw:
+                   /* case R.id.action_withdraw:
                         Intent intent1 = new Intent(Dashboard.this, Withdraw.class);
                         startActivity(intent1);
-                        break;
+                        break;*/
 
                     case R.id.action_notification:
                         Intent intent2 = new Intent(Dashboard.this, Notification.class);
@@ -95,9 +104,26 @@ public class Dashboard extends AppCompatActivity {
 
 
         FirebaseUser mUser = mAuth.getCurrentUser();
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        uid = mUser.getUid();
+        name = mUser.getDisplayName();
 
-        UserName = findViewById(R.id.UserName);
-        UserName.setText("Welcome"+mUser.getDisplayName());
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Username = dataSnapshot.child(uid).child("name").getValue(String.class);
+                UserName = findViewById(R.id.UserName);
+                UserName.setText("Welcome " +Username +name +uid);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         //UserName.setText(getIntent().getExtras().getString("UserName"));
         buttonLogout = findViewById(R.id.buttonLogout);
 
