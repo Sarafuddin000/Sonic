@@ -22,12 +22,10 @@ import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class Dashboard extends AppCompatActivity {
 
-    public TextView UserName;
     public FirebaseAuth mAuth;
     public Button buttonLogout;
     DatabaseReference databaseReference;
-    String uid;
-    String name;
+    private TextView UserName;
 
 
 
@@ -94,6 +92,10 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+
+
+
+
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() == null){
@@ -105,23 +107,34 @@ public class Dashboard extends AppCompatActivity {
 
         FirebaseUser mUser = mAuth.getCurrentUser();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
-        uid = mUser.getUid();
-        name = mUser.getDisplayName();
+        UserName = findViewById(R.id.UserName);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String Username = dataSnapshot.child(uid).child("name").getValue(String.class);
-                UserName = findViewById(R.id.UserName);
-                UserName.setText("Welcome " +Username +name +uid);
-            }
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid());
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-            }
-        });
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String name = dataSnapshot.child("name").getValue().toString();
+
+                    UserName.setText("Welcome " + name);
+
+
+                    Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
+
+//                UserID = findViewById(R.id.UserID);
+//                UserID.setText(uid);
+//                UserName = findViewById(R.id.UserName);
+//                UserName.setText(name);
+//                UserPhone = findViewById(R.id.UserPhone);
+//                UserPhone.setText(mobile);
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            });
 
 
         //UserName.setText(getIntent().getExtras().getString("UserName"));

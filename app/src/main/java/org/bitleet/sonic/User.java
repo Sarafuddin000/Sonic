@@ -1,16 +1,13 @@
 package org.bitleet.sonic;
 
 public class User {
-    public String name, email, mobile;
+    public String name, email, mobile, Password;
 
-    public User(){
-
-    }
-
-    public User(String name, String email, String phone){
+    public User(String name, String email, String phone, String Password){
         this.name = name;
         this.email = email;
         this.mobile = phone;
+        this.Password = Password;
     }
 
 }

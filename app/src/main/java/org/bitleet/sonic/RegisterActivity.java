@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String name = editTextName.getText().toString().trim();
         final String email = editTextEmail.getText().toString().trim();
         final String mobile = editTextMobile.getText().toString().trim();
-        String Password = editTextPassword.getText().toString().trim();
+        final String Password = editTextPassword.getText().toString().trim();
 
         if (name.isEmpty()){
             editTextName.setError("Full Name required");
@@ -127,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (task.isSuccessful()){
 
-                        User user = new User(name, email, mobile);
+                            User user = new User(name, email, mobile, Password);
 
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
