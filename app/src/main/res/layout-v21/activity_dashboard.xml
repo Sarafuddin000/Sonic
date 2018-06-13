@@ -52,13 +52,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginBottom="2dp"
-            android:text="Loading...." />
+            android:text="Loading.... Make sure Internet is connected!" />
 
 
         <Button
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="LogOut"

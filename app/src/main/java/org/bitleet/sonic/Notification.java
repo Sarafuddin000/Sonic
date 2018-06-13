@@ -12,7 +12,7 @@ public class Notification extends AppCompatActivity {
     String message;
     public static final String SHARED_PREFS = "sharedPrefs";
 
-
+//Notification in dead state
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
