@@ -6,75 +6,123 @@
     android:layout_height="match_parent"
     tools:context=".Support">
 
-    <TextView
-        android:id="@+id/SupportNPromo"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Support &amp; Promotions"
-        android:gravity="center|top"
-        android:textSize="35dp"
-        android:paddingBottom="30dp"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-    <LinearLayout
-        android:layout_below="@+id/SupportNPromo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/Social">
+        <TextView
+            android:id="@+id/SupportNPromo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:paddingBottom="30dp"
+            android:text="Support &amp; Promotions"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageView
             android:id="@+id/facebook"
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
             android:padding="10dp"
-            app:srcCompat="@drawable/facebook"
-            android:clickable="true"/>
+            app:layout_constraintBottom_toTopOf="@+id/unickmart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/youtube"
+            app:layout_constraintTop_toBottomOf="@+id/SupportNPromo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/facebook" />
 
         <ImageView
             android:id="@+id/youtube"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            app:srcCompat="@drawable/youtube"
-            android:clickable="true"/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/facebook"
+            app:layout_constraintStart_toEndOf="@+id/messenger"
+            app:layout_constraintTop_toBottomOf="@+id/SupportNPromo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/youtube" />
 
         <ImageView
             android:id="@+id/messenger"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            app:srcCompat="@drawable/messanger"
-            android:clickable="true"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/Social">
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/youtube"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SupportNPromo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/messanger" />
 
         <ImageView
             android:id="@+id/bloodman"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            app:srcCompat="@drawable/bloodman"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/googleplus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messenger"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/bloodman" />
 
         <ImageView
             android:id="@+id/googleplus"
             android:layout_width="130dp"
             android:layout_height="130dp"
-             app:srcCompat="@drawable/googleplus"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
-            android:focusable="auto"/>
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/unickmart"
+            app:layout_constraintStart_toEndOf="@+id/bloodman"
+            app:layout_constraintTop_toBottomOf="@+id/youtube"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/googleplus" />
 
         <ImageView
             android:id="@+id/unickmart"
             android:layout_width="130dp"
             android:layout_height="130dp"
-             app:srcCompat="@drawable/unickmart"
-            android:clickable="true"/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/googleplus"
+            app:layout_constraintTop_toBottomOf="@+id/youtube"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/unickmart" />
 
-    </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </RelativeLayout>

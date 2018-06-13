@@ -13,6 +13,7 @@ public class Notification extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
 
 //Notification in dead state
+    //Timer for notification remove from Sharedpreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
