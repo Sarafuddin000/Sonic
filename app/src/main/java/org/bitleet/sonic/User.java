@@ -9,5 +9,6 @@ public class User {
         this.mobile = phone;
         this.Password = Password;
     }
-
 }
+
+

@@ -103,8 +103,6 @@ public class Dashboard extends AppCompatActivity {
             finish();
             startActivity(intent);
         }
-
-
         FirebaseUser mUser = mAuth.getCurrentUser();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         UserName = findViewById(R.id.UserName);
@@ -117,17 +115,6 @@ public class Dashboard extends AppCompatActivity {
                     String name = dataSnapshot.child("name").getValue().toString();
 
                     UserName.setText("Welcome " + name);
-
-
-                    Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
-
-//                UserID = findViewById(R.id.UserID);
-//                UserID.setText(uid);
-//                UserName = findViewById(R.id.UserName);
-//                UserName.setText(name);
-//                UserPhone = findViewById(R.id.UserPhone);
-//                UserPhone.setText(mobile);
-
                 }
 
                 @Override
@@ -137,7 +124,6 @@ public class Dashboard extends AppCompatActivity {
             });
 
 
-        //UserName.setText(getIntent().getExtras().getString("UserName"));
         buttonLogout = findViewById(R.id.buttonLogout);
 
         buttonLogout.setOnClickListener(new View.OnClickListener() {

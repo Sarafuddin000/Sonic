@@ -22,6 +22,7 @@
         app:fabGravity="bottom_end"
         app:fabMenu="@menu/main_menu"
         app:miniFabDrawableTint="@color/colorPrimaryDark"
+        app:miniFabBackgroundTint="@android:color/white"
         app:miniFabTitleTextColor="@color/colorPrimaryDark"
         app:miniFabTitlesEnabled="true">
 
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginBottom="2dp"
-            android:text="Name" />
+            android:text="Loading...." />
 
 
         <Button

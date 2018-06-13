@@ -7,19 +7,22 @@
     tools:context=".Notification">
 
     <TextView
-        android:id="@+id/n"
+        android:id="@+id/notification"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_height="70dp"
         android:text="Notification"
-        android:textSize="50sp"/>
+        android:textSize="50sp"
+        android:layout_marginBottom="20dp"/>
+
 
     <TextView
         android:id="@+id/notificationBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/n"
-        android:textSize="15sp"/>
-
+        android:layout_below="@+id/notification"
+        android:textSize="20sp"
+        android:text="Notifications appear here"/>
 
 
 </RelativeLayout>

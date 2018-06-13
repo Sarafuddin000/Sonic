@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextMobile;
     private EditText editTextPassword;
     public Button btnSignup, goLogin;
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
     public RegisterActivity() {
     }
 
